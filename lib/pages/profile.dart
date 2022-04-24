@@ -148,7 +148,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             height: 16.0,
                           ),
                           TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.pushNamed(context, '/changePasswordScreen');
+                            },
                             child: Row(
                               children: const [
                                 Expanded(

@@ -31,7 +31,7 @@ class _SignupState extends State<Signup> {
                   'Create an Account',
                   style: TextStyle(
                       color: Colors.blue,
-                      fontSize: 16.0,
+                      fontSize: 24.0,
                       fontWeight: FontWeight.w600),
                 ),
                 const SizedBox(height: 48.0),
@@ -84,7 +84,7 @@ class _SignupState extends State<Signup> {
                                 const StadiumBorder()),
                             minimumSize:
                                 MaterialStateProperty.all(const Size(0, 48.0))),
-                        onPressed: () {},
+                        onPressed: () {Navigator.pushNamed(context, '/paymentCardScreen');},
                         icon: const Icon(Icons.g_translate),
                         label: const Text(
                           'Sign up with Google',
@@ -99,8 +99,10 @@ class _SignupState extends State<Signup> {
                               MaterialStateProperty.all(const Size(0, 48.0)),
                           backgroundColor:
                               MaterialStateProperty.all(Colors.blue)),
-                      onPressed: () {},
-                      child: const Text('Sign up with Google',
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/paymentCardScreen');
+                      },
+                      child: const Text('Sign up',
                           style:
                               TextStyle(color: Colors.white, fontSize: 16.0)),
                     ),

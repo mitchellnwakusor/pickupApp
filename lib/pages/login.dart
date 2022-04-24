@@ -27,7 +27,7 @@ class _LoginState extends State<Login> {
                   'Login to pickup!',
                   style: TextStyle(
                       color: Colors.blue,
-                      fontSize: 16.0,
+                      fontSize: 24.0,
                       fontWeight: FontWeight.w600),
                 ),
                 const SizedBox(height: 48.0),
@@ -78,7 +78,7 @@ class _LoginState extends State<Login> {
                           backgroundColor:
                               MaterialStateProperty.all(Colors.blue)),
                       onPressed: () {
-                        Navigator.pushNamed(context, '/profileScreen');
+                        Navigator.pushNamed(context, '/');
                       },
                       icon: const Icon(
                         Icons.arrow_right_alt,
