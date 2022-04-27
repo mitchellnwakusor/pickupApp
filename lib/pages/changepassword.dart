@@ -33,8 +33,8 @@ class _ChangePasswordState extends State<ChangePassword> {
                   const Text(
                     'Change Password',
                     style: TextStyle(
-                        color: Colors.blue,
-                        fontSize: 24.0,
+                        color: Colors.black,
+                        fontSize: 18.0,
                         fontWeight: FontWeight.w600),
                   ),
                   const SizedBox(

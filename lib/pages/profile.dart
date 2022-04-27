@@ -36,7 +36,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               padding: const EdgeInsets.all(8.0),
               decoration: BoxDecoration(
                   shape: BoxShape.rectangle,
-                  color: Colors.grey[200],
+                  color: Colors.grey[100],
                   borderRadius:
                       const BorderRadius.vertical(top: Radius.circular(56)))),
           ListView(
@@ -79,7 +79,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.pushNamed(context, '/paymentMethodProfileScreen');
+                            },
                             child: Row(
                               children: const [
                                 Expanded(

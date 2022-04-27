@@ -19,7 +19,7 @@ class _LoginState extends State<Login> {
       body: ListView(
         children: [
           Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

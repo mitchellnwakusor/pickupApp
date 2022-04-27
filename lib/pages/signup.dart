@@ -23,7 +23,7 @@ class _SignupState extends State<Signup> {
       body: ListView(
         children: [
           Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -84,7 +84,7 @@ class _SignupState extends State<Signup> {
                                 const StadiumBorder()),
                             minimumSize:
                                 MaterialStateProperty.all(const Size(0, 48.0))),
-                        onPressed: () {Navigator.pushNamed(context, '/paymentCardScreen');},
+                        onPressed: () {Navigator.pushNamed(context, '/otpVerificationScreen');},
                         icon: const Icon(Icons.g_translate),
                         label: const Text(
                           'Sign up with Google',
@@ -100,7 +100,7 @@ class _SignupState extends State<Signup> {
                           backgroundColor:
                               MaterialStateProperty.all(Colors.blue)),
                       onPressed: () {
-                        Navigator.pushNamed(context, '/paymentCardScreen');
+                        Navigator.pushNamed(context, '/otpVerificationScreen');
                       },
                       child: const Text('Sign up',
                           style:

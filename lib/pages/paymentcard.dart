@@ -163,7 +163,7 @@ class _PaymentCardState extends State<PaymentCard> {
               alignment: Alignment.centerLeft,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: TextButton(onPressed: (){}, child: const Text('SKIP',style: TextStyle(letterSpacing: 1),),style: ButtonStyle(
+                child: TextButton(onPressed: (){Navigator.pushNamed(context, '/profileScreen');}, child: const Text('SKIP',style: TextStyle(letterSpacing: 1),),style: ButtonStyle(
                   foregroundColor: MaterialStateProperty.all(Colors.grey),
                 ),),
               ),
@@ -177,7 +177,9 @@ class _PaymentCardState extends State<PaymentCard> {
         padding: const EdgeInsets.all(16.0),
         child: Align(
           alignment: Alignment.bottomRight,
-            child: FloatingActionButton(backgroundColor: Colors.blueGrey,onPressed: (){}, child: const Icon(Icons.arrow_forward,color: Colors.white,size: 32.0,))),
+            child: FloatingActionButton(backgroundColor: Colors.blueGrey,onPressed: (){
+              Navigator.pushNamed(context, '/profileScreen');
+            }, child: const Icon(Icons.arrow_forward,color: Colors.white,size: 32.0,))),
       )
 
         ],
