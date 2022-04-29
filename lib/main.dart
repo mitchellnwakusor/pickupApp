@@ -17,24 +17,24 @@ import 'package:pickup/pages/test.dart';
 void main() {
   runApp( MaterialApp(
     debugShowCheckedModeBanner: false,
-    // home: PaymentMethodProfile(),
-    initialRoute: '/',
-    routes: {
-      '/': (context) => const Loading(),
-      '/splashScreen': (context) => const StartScreen(),
-      '/signupScreen': (context) =>  const Signup(),
-      '/loginScreen': (context) => const Login(),
-      '/profileScreen': (context) => const ProfileScreen(),
-      '/editProfileScreen': (context) => const EditProfile(),
-      '/testScreen': (context) => const Test(),
-      '/paymentCardScreen': (context) =>  const PaymentCard(),
-      '/changePasswordScreen': (context) => const ChangePassword(),
-      '/cancelTripScreen': (context) => const CancelTrip(),
-      '/logisticsInfoScreen': (context) => const LogisticsInfo(),
-      '/logisticsSummaryScreen': (context) => const LogisticsSummary(),
-      '/otpVerificationScreen': (context) => const OTPVerification(),
-    '/paymentMethodProfileScreen': (context) => const PaymentMethodProfile(),
-    },
+     home: StartScreen(),
+    // initialRoute: '/',
+    // routes: {
+    //   '/': (context) => const Loading(),
+    //   '/splashScreen': (context) => const StartScreen(),
+    //   '/signupScreen': (context) =>  const Signup(),
+    //   '/loginScreen': (context) => const Login(),
+    //   '/profileScreen': (context) => const ProfileScreen(),
+    //   '/editProfileScreen': (context) => const EditProfile(),
+    //   '/testScreen': (context) => const Test(),
+    //   '/paymentCardScreen': (context) =>  const PaymentCard(),
+    //   '/changePasswordScreen': (context) => const ChangePassword(),
+    //   '/cancelTripScreen': (context) => const CancelTrip(),
+    //   '/logisticsInfoScreen': (context) => const LogisticsInfo(),
+    //   '/logisticsSummaryScreen': (context) => const LogisticsSummary(),
+    //   '/otpVerificationScreen': (context) => const OTPVerification(),
+    // '/paymentMethodProfileScreen': (context) => const PaymentMethodProfile(),
+    // },
   ));
 }
 
