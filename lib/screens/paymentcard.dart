@@ -116,7 +116,7 @@ class _PaymentCardState extends State<PaymentCard> {
                         ),
                         const SizedBox(height: 16.0,),
                         TextFormField(
-                          keyboardType: TextInputType.number,
+                          keyboardType: TextInputType.name,
                           style: const TextStyle(
                             fontSize: 16.0,
                           ),

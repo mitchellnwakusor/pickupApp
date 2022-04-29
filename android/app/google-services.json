@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "174101456220",
+    "project_id": "pickup-3fa10",
+    "storage_bucket": "pickup-3fa10.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:174101456220:android:aac618926f6027adb80d99",
+        "android_client_info": {
+          "package_name": "cube.com.ng.pickup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "174101456220-4j39shv78mlj252bhedptg96rv41d3to.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByuPufZSfcgAOr3PgoCblxm_bwZrJuGPk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "174101456220-4j39shv78mlj252bhedptg96rv41d3to.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

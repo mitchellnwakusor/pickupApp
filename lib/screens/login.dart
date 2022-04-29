@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pickup/services/firebaseauthentication.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -8,6 +9,9 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+
+  // late AuthService _auth = AuthService();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -77,8 +81,18 @@ class _LoginState extends State<Login> {
                               MaterialStateProperty.all(const Size(0, 48.0)),
                           backgroundColor:
                               MaterialStateProperty.all(Colors.blue)),
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/');
+                      // onPressed: () {
+                      //   Navigator.pushNamed(context, '/');
+                      // },
+                      onPressed: () async{
+                        // dynamic result = await _auth.signInAnon();
+                        // if(result == null){
+                        //   print('could not sign in');
+                        // }
+                        // else{
+                        //   print('signed in $result');
+                        //   Navigator.pushNamed(context, '/profileScreen');
+                        // }
                       },
                       icon: const Icon(
                         Icons.arrow_right_alt,
