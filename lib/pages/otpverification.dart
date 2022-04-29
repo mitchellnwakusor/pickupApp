@@ -90,7 +90,8 @@ class _OTPVerificationState extends State<OTPVerification> {
 
                                 child: TextField(
                                   inputFormatters: [
-                                    LengthLimitingTextInputFormatter(1)
+                                    LengthLimitingTextInputFormatter(1),
+                                    FilteringTextInputFormatter.digitsOnly
                                   ],
                                   textAlign: TextAlign.center,
                                   style: const TextStyle(
