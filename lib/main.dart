@@ -13,6 +13,7 @@ import 'package:pickup/pages/profile.dart';
 import 'package:pickup/pages/signup.dart';
 import 'package:pickup/pages/splashscreen.dart';
 import 'package:pickup/pages/test.dart';
+import 'package:pickup/pages/passenger_destination.dart';
 
 void main() {
   runApp( MaterialApp(
@@ -20,7 +21,8 @@ void main() {
      // home: StartScreen(),
     initialRoute: '/',
     routes: {
-      '/': (context) => const Loading(),
+      '/': (context) => const PassengerDestination(),
+      // '/': (context) => const Loading(),
       '/splashScreen': (context) => const StartScreen(),
       '/signupScreen': (context) =>  const Signup(),
       '/loginScreen': (context) => const Login(),
