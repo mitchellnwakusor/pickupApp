@@ -47,8 +47,8 @@ class CustomTextTheme {
 
   TextStyle pageHeader = const TextStyle(
       color: Colors.blue,
-      fontSize: 24.0,
-    fontWeight: FontWeight.w600
+      fontSize: 28.0,
+    fontWeight: FontWeight.bold
   );
 
   TextStyle hyperlinkLight = const TextStyle(
@@ -76,9 +76,24 @@ class CustomTextTheme {
     // letterSpacing: 1.0
   );
 
+  TextStyle bodyText = const TextStyle(
+    color: Colors.black,
+    fontSize: 16.0,
+    // letterSpacing: 1.0
+  );
+
+  TextStyle bodyTextEmp = const TextStyle(
+    color: Colors.black,
+    fontWeight: FontWeight.w600,
+    fontSize: 16.0,
+    letterSpacing: 1.0
+  );
+
+
   TextStyle hyperlinkDark = TextStyle(
       color: Colors.blue[800],
       fontSize: 16.0,
+      fontWeight: FontWeight.bold,
       letterSpacing: 1.0
   );
 

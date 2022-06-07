@@ -24,40 +24,28 @@ class _LandingScreenState extends State<LandingScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
-            children: [
-              const SizedBox(height: 64.0),
+             children: [
+        const Expanded(child: SizedBox(height: 64.0)),
               //HeaderCard
-              Expanded(
-                child: Container(
-                  // color: Colors.amber,
-                  padding: const EdgeInsets.all(16.0),
-                  // margin: const EdgeInsets.all(8.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('Subheading',
-                        style: textTheme.startScreen_subheaderLight,
-                      ),
-                     const SizedBox(
-                        height: 8.0,
-                      ),
-                      Text(
-                        'Heading',
-                        style: textTheme.startScreen_headerLight,
-                      ),
-                    ],
-                  ),
+              Container(
+                // color: Colors.amber,
+                padding: const EdgeInsets.all(16.0),
+                // margin: const EdgeInsets.all(8.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Subheading', style: textTheme.startScreen_subheaderLight,),
+                    Text('Heading', style: textTheme.startScreen_headerLight,),
+                  ],
                 ),
               ),
-              const SizedBox(height: 24.0,),
               //ImageCard
               Expanded(
-                flex: 2,
+                flex: 5,
                 child: Container(
                   padding: const EdgeInsets.all(16.0),
-                  // margin: EdgeInsets.all(8.0),
-                  height: 360,
+                  height: 228,
                   decoration: BoxDecoration(
                     // color: Colors.red,
                     image: DecorationImage(
@@ -67,27 +55,25 @@ class _LandingScreenState extends State<LandingScreen> {
                   ),
                 ),
               ),
-              const SizedBox(height: 32.0,),
               //CtoCard
               Expanded(
+                flex: 3,
                 child: Container(
                   // color: Colors.purple,
-                  padding: EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.all(16.0),
                   // margin: EdgeInsets.all(8.0),
-                  height: 152.0,
+                  // height: 152.0,
                   width: MediaQuery.of(context).size.width,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       TextButton(
                         style: ButtonStyle(
                           elevation: MaterialStateProperty.all(5.0),
                             shape: MaterialStateProperty.all(const StadiumBorder()),
                             backgroundColor: MaterialStateProperty.all(colorTheme.btnColor),
-                            minimumSize:
-                                MaterialStateProperty.all(const Size(328.0, 48.0)),
-                        // maximumSize: MaterialStateProperty.all((const Size(328.0*2, 48.0*2)))
+                            // minimumSize: MaterialStateProperty.all(const Size(328.0, 48.0)), // maximumSize: MaterialStateProperty.all((const Size(328.0*2, 48.0*2)))
                         ),
                         onPressed: () {
                           Navigator.pushNamed(context, '/signupScreen');
@@ -97,14 +83,14 @@ class _LandingScreenState extends State<LandingScreen> {
                           style: textTheme.btnLight,
                         ),
                       ),
-                      const SizedBox(height: 24.0),
+                      // const SizedBox(height: 16.0),
                       TextButton(
                         style: ButtonStyle(
                             elevation: MaterialStateProperty.all(5.0),
                             shape: MaterialStateProperty.all(const StadiumBorder()),
                             backgroundColor: MaterialStateProperty.all(colorTheme.btnColor),
-                            minimumSize:
-                                MaterialStateProperty.all(const Size(328.0, 48.0))),
+                            // minimumSize: MaterialStateProperty.all(const Size(328.0, 48.0))
+                        ),
                         onPressed: () {
                           Navigator.pushNamed(context, '/loginScreen');
                         },
@@ -117,7 +103,6 @@ class _LandingScreenState extends State<LandingScreen> {
                   ),
                 ),
               ),
-              const SizedBox(height: 32.0),
             ],
           ),
         ),

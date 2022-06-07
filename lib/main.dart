@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:pickup/screens/canceltrip.dart';
 import 'package:pickup/screens/changepassword.dart';
 import 'package:pickup/screens/editprofile.dart';
-import 'package:pickup/screens/loading.dart';
 import 'package:pickup/screens/login.dart';
 import 'package:pickup/screens/logisticsinfo.dart';
 import 'package:pickup/screens/logisticssummary.dart';
@@ -23,7 +22,8 @@ await Firebase.initializeApp();
   runApp( MaterialApp(
     debugShowCheckedModeBanner: false,
       debugShowMaterialGrid: false,
-      // home: StartupScreen(),
+      // home: OTPVerification(),
+    // home: Signup(),
     initialRoute: '/',
     routes: {
       '/': (context) => const StartupScreen(),

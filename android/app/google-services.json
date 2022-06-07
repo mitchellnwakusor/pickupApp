@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "174101456220-526554p2ohd91or3fovp3ssfgrv6r9hn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "cube.com.ng.pickup",
+            "certificate_hash": "329e99895fb5eff3d632e8d8433624910b74cdef"
+          }
+        },
+        {
           "client_id": "174101456220-4j39shv78mlj252bhedptg96rv41d3to.apps.googleusercontent.com",
           "client_type": 3
         }
