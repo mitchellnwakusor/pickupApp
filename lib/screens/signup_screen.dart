@@ -380,13 +380,13 @@ class _SignupState extends State<Signup> {
                                            //   'mobile no': mobileNo.text.trim(),
                                            // });
                                            // () {} verify mobile number
-                                             await authentication.signinwithMobileNo(mobileNo.text.trim(),firstName.text.trim(),lastName.text.trim(), emailAddress.text.trim(), context);
+                                             await authentication.signinwithMobileNo(mobileNo.text.trim(),firstName.text.trim(),lastName.text.trim(),emailAddress.text.trim(), context);
                                            // if(authentication.auth.currentUser?.phoneNumber!=null){
                                            //   //store data
                                            //   database.storeUserData(firstName, lastName, emailAddress, mobileNo);
                                            //   Navigator.pushReplacementNamed(context, '/addPaymentCardScreen');
                                            // }
-                                           print('creation succesful');
+                                           print('sign up succesful');
                                          }
                                          else{
                                            setState((){errorMessage = authentication.errorMessage;});
