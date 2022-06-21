@@ -17,6 +17,7 @@ class _StartupScreenState extends State<StartupScreen> {
   final CustomTextTheme _customTextTheme = CustomTextTheme();
 
   late bool isFirstLaunch;
+
   //functions to run on init
  firstLaunch() async{
     SharedPreferences preferences = await SharedPreferences.getInstance();

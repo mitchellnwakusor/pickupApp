@@ -8,8 +8,11 @@ class Authentication {
   final FirebaseAuth auth = FirebaseAuth.instance;
   final Database database = Database();
   final CustomDialog dialog = CustomDialog();
+  bool completed = false;
   String errorMessage = 'no error';
+  String? verificationID;
   String? smsCode = '------';
+  int? resendToken;
   // String userVerificationId = 'default';
   // TextEditingController email;
   // TextEditingController mobileNo;
@@ -20,19 +23,22 @@ class Authentication {
   //sign in with email & password
 
   //sign in with phone & password
-  Future<void> signinwithMobileNo(String mobileNo, String firstName, String lastName, String email,  BuildContext context) async{
+  Future<bool> signinwithMobileNo(String mobileNo, String firstName, String lastName, String email,  BuildContext context) async{
     bool status = false;
    try{
      await auth.verifyPhoneNumber(
           phoneNumber: '+234' + mobileNo,
+          forceResendingToken: resendToken,
+          timeout: const Duration(milliseconds: 1000),
           verificationCompleted: (PhoneAuthCredential credential) async {
+            completed = true;
             smsCode = credential.smsCode;
-            print(smsCode);
-            Navigator.pushReplacementNamed(
-                context, '/otpVerificationScreen', arguments: {
-              'mobile no': mobileNo,
-              'smsCode': smsCode
-            });
+            // print(smsCode);
+            // Navigator.pushReplacementNamed(
+            //     context, '/otpVerificationScreen', arguments: {
+            //   'mobile no': mobileNo,
+            //   'smsCode': smsCode
+            // });
             try {
               // await auth.currentUser?.updatePhoneNumber(credential);
               await auth.currentUser?.linkWithCredential(credential);
@@ -46,36 +52,45 @@ class Authentication {
                  status = false;
                }
               }
+              else{
+                status = false;
+              }
             }
             on FirebaseAuthException catch(e){
+              print(e.code);
             status = false;
+            // switch(e.code){
+            //   case '':
+            //     errorMessage = 'This phone number is already linked to an account, try to login';
+            // }
             errorMessage = e.message!;
             }
-
           },
           verificationFailed: (e) {
             errorMessage = e.message!;
             status = false;
 
           },
-          codeSent: (String? verificationId, int? resendToken) async {
-            // userVerificationId = verificationId;
-            Navigator.pushReplacementNamed(
-                context, '/otpVerificationScreen', arguments: {
-              'mobile no': mobileNo,
-              'first name': firstName,
-              'last name': lastName,
-              'email': email,
-              'verification id': verificationId,
-              'smsCode': smsCode
 
-            });
-          },
+           codeSent: (String? verificationId, int? resendToken) async{
+           // userVerificationId = verificationId;
+           completed = true;
+           Navigator.pushNamed(
+           context, '/otpVerificationScreen', arguments: {
+           'mobile no': mobileNo,
+           'first name': firstName,
+           'last name': lastName,
+           'email': email,
+           'verification id': verificationId,
+           'smsCode': smsCode
+           });
+           this.resendToken = resendToken;
+           },
           codeAutoRetrievalTimeout: (String verificationId) {
-
+            verificationID = verificationId;
           }
           );
-   status = true;
+     print(status);
    }
    on FirebaseAuthException catch(e){
      errorMessage = e.message!;
@@ -83,7 +98,7 @@ class Authentication {
      dialog.showCustomErrorDialog(context, errorMessage);
    }
     print(status);
-    // return status;
+     return status;
   }
 
   //**********

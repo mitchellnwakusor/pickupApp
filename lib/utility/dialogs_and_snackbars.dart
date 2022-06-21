@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
-class CustomDialog{
+class CustomDialog {
 
   String tandcContent = 'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ';
   String privacyContent = 'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ';
 
-  void showCustomErrorDialog(BuildContext context,String? content){
-    showDialog(context: context, builder: (BuildContext context){
+
+  void showCustomErrorDialog(BuildContext context, String? content) {
+    showDialog(context: context, builder: (BuildContext context) {
       return AlertDialog(
         title: const Text('Unable to create user'),
         titlePadding: const EdgeInsets.all(24.0),
@@ -25,13 +26,14 @@ class CustomDialog{
         backgroundColor: Colors.blue[800],
         scrollable: true,
         alignment: Alignment.topCenter,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16.0)),
       );
     });
   }
 
-  void showCustomTandCDialog(BuildContext context){
-    showDialog(context: context, builder: (BuildContext context){
+  void showCustomTandCDialog(BuildContext context) {
+    showDialog(context: context, builder: (BuildContext context) {
       return AlertDialog(
         title: const Text('Terms and Conditions'),
         titlePadding: const EdgeInsets.all(24.0),
@@ -50,13 +52,14 @@ class CustomDialog{
         backgroundColor: Colors.blue[800],
         scrollable: true,
         alignment: Alignment.topCenter,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16.0)),
       );
     });
   }
 
-  void showCustomPrivacyUseDialog(BuildContext context){
-    showDialog(context: context, builder: (BuildContext context){
+  void showCustomPrivacyUseDialog(BuildContext context) {
+    showDialog(context: context, builder: (BuildContext context) {
       return AlertDialog(
         title: const Text('Privacy Use'),
         titlePadding: const EdgeInsets.all(24.0),
@@ -75,12 +78,21 @@ class CustomDialog{
         backgroundColor: Colors.blue[800],
         scrollable: true,
         alignment: Alignment.topCenter,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16.0)),
       );
     });
   }
+}
+class CustomLoadingWidget{
+  void showLoadingWidget(BuildContext loadingContext,){
+    showDialog(context: loadingContext, builder: (BuildContext loadingContext){
+      return const Center(
+        child: CircularProgressIndicator(),
+      );
+    });
 
-
+  }
 
 }
 

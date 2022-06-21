@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -15,13 +16,13 @@ class Signup extends StatefulWidget {
 }
 
 class _SignupState extends State<Signup> {
-
-   Authentication authentication = Authentication();
-   Database database = Database();
-   CustomDialog customDialog = CustomDialog();
-   CustomSnackBar customSnackBar = CustomSnackBar();
-   CustomColorTheme colorTheme = CustomColorTheme();
-   CustomTextTheme textTheme = CustomTextTheme();
+  Authentication authentication = Authentication();
+  Database database = Database();
+  CustomDialog customDialog = CustomDialog();
+  CustomSnackBar customSnackBar = CustomSnackBar();
+  CustomColorTheme colorTheme = CustomColorTheme();
+  CustomTextTheme textTheme = CustomTextTheme();
+  CustomLoadingWidget loadingWidget = CustomLoadingWidget();
 
   //form key
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -51,7 +52,6 @@ class _SignupState extends State<Signup> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       // appBar: AppBar(
       //   backgroundColor: colorTheme.appBarBg,
       //   foregroundColor: colorTheme.appBarFg,
@@ -116,10 +116,12 @@ class _SignupState extends State<Signup> {
                                                 child: TextFormField(
                                                   controller: firstName,
                                                   autovalidateMode:
-                                                  AutovalidateMode.onUserInteraction,
+                                                      AutovalidateMode
+                                                          .onUserInteraction,
                                                   inputFormatters: [
-                                                    FilteringTextInputFormatter.allow(
-                                                        RegExp('[A-Za-z]'))
+                                                    FilteringTextInputFormatter
+                                                        .allow(
+                                                            RegExp('[A-Za-z]'))
                                                   ],
                                                   validator: (value) {
                                                     if (value == null ||
@@ -129,25 +131,32 @@ class _SignupState extends State<Signup> {
                                                     return null;
                                                   },
                                                   decoration: InputDecoration(
-                                                      label: const Text('First Name'),
+                                                      label: const Text(
+                                                          'First Name'),
                                                       hintText: 'John',
-                                                      border: const OutlineInputBorder(),
-                                                      focusedBorder: OutlineInputBorder(
-                                                          borderSide: BorderSide(
-                                                            color: Color(colorTheme
-                                                                .backgroundColor.hashCode),
-                                                          ))),
+                                                      border:
+                                                          const OutlineInputBorder(),
+                                                      focusedBorder:
+                                                          OutlineInputBorder(
+                                                              borderSide:
+                                                                  BorderSide(
+                                                        color: Color(colorTheme
+                                                            .backgroundColor
+                                                            .hashCode),
+                                                      ))),
                                                 ),
                                               ),
                                               const SizedBox(width: 16.0),
                                               Expanded(
                                                 child: TextFormField(
                                                   autovalidateMode:
-                                                  AutovalidateMode.onUserInteraction,
+                                                      AutovalidateMode
+                                                          .onUserInteraction,
                                                   controller: lastName,
                                                   inputFormatters: [
-                                                    FilteringTextInputFormatter.allow(
-                                                        RegExp('[A-Za-z]'))
+                                                    FilteringTextInputFormatter
+                                                        .allow(
+                                                            RegExp('[A-Za-z]'))
                                                   ],
                                                   validator: (value) {
                                                     if (value == null ||
@@ -157,14 +166,19 @@ class _SignupState extends State<Signup> {
                                                     return null;
                                                   },
                                                   decoration: InputDecoration(
-                                                      label: const Text('Last Name'),
+                                                      label: const Text(
+                                                          'Last Name'),
                                                       hintText: 'Doe',
-                                                      border: const OutlineInputBorder(),
-                                                      focusedBorder: OutlineInputBorder(
-                                                          borderSide: BorderSide(
-                                                            color: Color(colorTheme
-                                                                .backgroundColor.hashCode),
-                                                          ))),
+                                                      border:
+                                                          const OutlineInputBorder(),
+                                                      focusedBorder:
+                                                          OutlineInputBorder(
+                                                              borderSide:
+                                                                  BorderSide(
+                                                        color: Color(colorTheme
+                                                            .backgroundColor
+                                                            .hashCode),
+                                                      ))),
                                                 ),
                                               ),
                                             ],
@@ -223,8 +237,8 @@ class _SignupState extends State<Signup> {
                                         // ),
                                         const SizedBox(height: 16.0),
                                         TextFormField(
-                                          autovalidateMode:
-                                              AutovalidateMode.onUserInteraction,
+                                          autovalidateMode: AutovalidateMode
+                                              .onUserInteraction,
                                           controller: emailAddress,
                                           validator: (value) {
                                             if (value == null ||
@@ -241,23 +255,27 @@ class _SignupState extends State<Signup> {
                                           inputFormatters: [
                                             FilteringTextInputFormatter.deny(
                                                 RegExp('[!#/\$~&*]')),
-                                            FilteringTextInputFormatter.deny(RegExp('[A-Z]'))
+                                            FilteringTextInputFormatter.deny(
+                                                RegExp('[A-Z]'))
                                           ],
                                           decoration: InputDecoration(
-                                              label: const Text('Email Address'),
+                                              label:
+                                                  const Text('Email Address'),
                                               hintText: 'johndoe@gmail.com',
-                                              border: const OutlineInputBorder(),
+                                              border:
+                                                  const OutlineInputBorder(),
                                               focusedBorder: OutlineInputBorder(
                                                   borderSide: BorderSide(
                                                       color: Color(colorTheme
-                                                          .appColor.hashCode)))),
+                                                          .appColor
+                                                          .hashCode)))),
                                           keyboardType:
                                               TextInputType.emailAddress,
                                         ),
                                         const SizedBox(height: 16.0),
                                         TextFormField(
-                                          autovalidateMode:
-                                              AutovalidateMode.onUserInteraction,
+                                          autovalidateMode: AutovalidateMode
+                                              .onUserInteraction,
                                           controller: mobileNo,
                                           validator: (value) {
                                             if (value == null ||
@@ -273,23 +291,27 @@ class _SignupState extends State<Signup> {
                                             return null;
                                           },
                                           inputFormatters: [
-                                            FilteringTextInputFormatter.digitsOnly
+                                            FilteringTextInputFormatter
+                                                .digitsOnly
                                           ],
                                           decoration: InputDecoration(
-                                              label: const Text('Mobile Number'),
+                                              label:
+                                                  const Text('Mobile Number'),
                                               prefix: const Text('+234'),
                                               hintText: '8012345678',
-                                              border: const OutlineInputBorder(),
+                                              border:
+                                                  const OutlineInputBorder(),
                                               focusedBorder: OutlineInputBorder(
                                                   borderSide: BorderSide(
                                                       color: Color(colorTheme
-                                                          .appColor.hashCode)))),
+                                                          .appColor
+                                                          .hashCode)))),
                                           keyboardType: TextInputType.phone,
                                         ),
                                         const SizedBox(height: 16.0),
                                         TextFormField(
-                                          autovalidateMode:
-                                              AutovalidateMode.onUserInteraction,
+                                          autovalidateMode: AutovalidateMode
+                                              .onUserInteraction,
                                           controller: password,
                                           validator: (value) {
                                             if (value == null ||
@@ -307,18 +329,19 @@ class _SignupState extends State<Signup> {
                                           decoration: InputDecoration(
                                               label: const Text('Password'),
                                               // hintText: 'johndoe@gmail.com',
-                                              border: const OutlineInputBorder(),
+                                              border:
+                                                  const OutlineInputBorder(),
                                               focusedBorder: OutlineInputBorder(
                                                   borderSide: BorderSide(
-                                                color: Color(
-                                                    colorTheme.appColor.hashCode),
+                                                color: Color(colorTheme
+                                                    .appColor.hashCode),
                                               ))),
                                           obscureText: true,
                                         ),
                                         const SizedBox(height: 16.0),
                                         TextFormField(
-                                          autovalidateMode:
-                                              AutovalidateMode.onUserInteraction,
+                                          autovalidateMode: AutovalidateMode
+                                              .onUserInteraction,
                                           controller: confirmPassword,
                                           validator: (value) {
                                             if (value == null ||
@@ -331,14 +354,15 @@ class _SignupState extends State<Signup> {
                                             return null;
                                           },
                                           decoration: InputDecoration(
-                                              label:
-                                                  const Text('Confirm Password'),
+                                              label: const Text(
+                                                  'Confirm Password'),
                                               // hintText: 'johndoe@gmail.com',
-                                              border: const OutlineInputBorder(),
+                                              border:
+                                                  const OutlineInputBorder(),
                                               focusedBorder: OutlineInputBorder(
                                                   borderSide: BorderSide(
-                                                color: Color(
-                                                    colorTheme.appColor.hashCode),
+                                                color: Color(colorTheme
+                                                    .appColor.hashCode),
                                               ))),
                                           obscureText: true,
                                         ),
@@ -357,155 +381,66 @@ class _SignupState extends State<Signup> {
                                 width: MediaQuery.of(context).size.width,
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.stretch,
                                   children: [
                                     TextButton(
                                       style: ButtonStyle(
                                           shape: MaterialStateProperty.all(
                                               const StadiumBorder()),
-                                          minimumSize: MaterialStateProperty.all(
-                                              const Size(328, 48.0)),
+                                          minimumSize:
+                                              MaterialStateProperty.all(
+                                                  const Size(328, 48.0)),
                                           backgroundColor:
                                               MaterialStateProperty.all(
                                                   Colors.blue)),
                                       onPressed: () async {
-                                        if (formKey.currentState!.validate()){
-                                         bool signupSuccesful = await authentication.signupwithEmail(firstName.text.trim(),emailAddress.text.trim(), password.text.trim(),context);
+                                        if (formKey.currentState!.validate()) {
+                                         loadingWidget
+                                              .showLoadingWidget(context);
+                                          bool signupSuccesful =
+                                              await authentication
+                                                  .signupwithEmail(
+                                                      firstName.text.trim(),
+                                                      emailAddress.text.trim(),
+                                                      password.text.trim(),
+                                                      context);
+                                          // Navigator.pop(context);
+                                          print('popped');
+                                          if (signupSuccesful) {
 
-                                         if(signupSuccesful){
-                                           // Navigator.pushReplacementNamed(context, '/otpVerificationScreen',arguments: {
-                                           //   'first name': firstName.text.trim(),
-                                           //   'last name': lastName.text.trim(),
-                                           //   'email address': emailAddress.text.trim(),
-                                           //   'mobile no': mobileNo.text.trim(),
-                                           // });
-                                           // () {} verify mobile number
-                                             await authentication.signinwithMobileNo(mobileNo.text.trim(),firstName.text.trim(),lastName.text.trim(),emailAddress.text.trim(), context);
-                                           // if(authentication.auth.currentUser?.phoneNumber!=null){
-                                           //   //store data
-                                           //   database.storeUserData(firstName, lastName, emailAddress, mobileNo);
-                                           //   Navigator.pushReplacementNamed(context, '/addPaymentCardScreen');
-                                           // }
-                                           print('sign up succesful');
-                                         }
-                                         else{
-                                           setState((){errorMessage = authentication.errorMessage;});
-                                           // customSnackBar.showErrorSnackBar(context, errorMessage);
-                                           customDialog.showCustomErrorDialog(context, errorMessage);
-                                         }
-                                      // bool signupSuccessful = await auth.signupwithEmail(emailAddress, password);
-                                          // setState(() {
-                                          //   errorMessage = auth.errorMessage;
-                                          // });
-                                          // if (signupSuccessful) {
-                                          //   // Navigator.pushReplacementNamed(context, '/otpVerificationScreen', arguments: {
-                                          //   //   "mobileNo": mobileNo.text.trim(),
-                                          //   // });
-                                          //   // bool storeDataSuccesful = await database.storeUserData(firstName,lastName,emailAddress,mobileNo);
-                                          //   // if (storeDataSuccesful) {
-                                          //   //   Navigator.pushReplacementNamed(context, '/addPaymentCardScreen');
-                                          //   //   }
-                                          //   // else {
-                                          //   //     setState(() {
-                                          //   //       errorMessage = database.errorMessage;
-                                          //   //       auth.auth.currentUser?.delete();
-                                          //   //     });
-                                          //   //     showDialog(context: context, builder: (BuildContext context) {
-                                          //   //           return AlertDialog(
-                                          //   //             title: const Text(
-                                          //   //                 'Unable to create user'),
-                                          //   //             titlePadding:
-                                          //   //                 const EdgeInsets.all(
-                                          //   //                     24.0),
-                                          //   //             titleTextStyle:
-                                          //   //                 const TextStyle(
-                                          //   //               fontWeight:
-                                          //   //                   FontWeight.w800,
-                                          //   //               color: Colors.white,
-                                          //   //               fontSize: 24.0,
-                                          //   //             ),
-                                          //   //             content:
-                                          //   //                 Text(errorMessage),
-                                          //   //             contentPadding:
-                                          //   //                 const EdgeInsets.all(
-                                          //   //                     24.0),
-                                          //   //             contentTextStyle:
-                                          //   //                 const TextStyle(
-                                          //   //                     color:
-                                          //   //                         Colors.white,
-                                          //   //                     fontSize: 16.0,
-                                          //   //                     letterSpacing:
-                                          //   //                         1.0),
-                                          //   //             backgroundColor:
-                                          //   //                 Colors.blue[800],
-                                          //   //             scrollable: true,
-                                          //   //             alignment:
-                                          //   //                 Alignment.topCenter,
-                                          //   //             shape:
-                                          //   //                 RoundedRectangleBorder(
-                                          //   //                     borderRadius:
-                                          //   //                         BorderRadius
-                                          //   //                             .circular(
-                                          //   //                                 16.0)),
-                                          //   //           );
-                                          //   //         });
-                                          //   //   }
-                                          //
-                                          //   //get otp
-                                          //
-                                          //
-                                          //   //navigate to verification page
-                                          //   //request for otp automatically
-                                          //   //verify number with inputted otp
-                                          //   //if succesful link to current user
-                                          //   //store data
-                                          //   //navigate to payment card page
-                                          //   //if not succesful resend otp andtry again
-                                          //   //if canceled, delete user go back to startup page
-                                          //   auth.getOTP(mobileNo, context);
-                                          //   }
-                                          //   else {
-                                          //     setState(() {
-                                          //       errorMessage = auth.errorMessage;
-                                          //       auth.auth.currentUser?.delete();
-                                          //     });
-                                          //     showDialog(context: context, builder: (BuildContext context) {
-                                          //           return AlertDialog(
-                                          //             title: const Text(
-                                          //                 'Unable to create user'),
-                                          //             titlePadding:
-                                          //                 const EdgeInsets.all(
-                                          //                     24.0),
-                                          //             titleTextStyle:
-                                          //                 const TextStyle(
-                                          //               fontWeight:
-                                          //                   FontWeight.w800,
-                                          //               color: Colors.white,
-                                          //               fontSize: 24.0,
-                                          //             ),
-                                          //             content: Text(errorMessage),
-                                          //             contentPadding:
-                                          //                 const EdgeInsets.all(
-                                          //                     24.0),
-                                          //             contentTextStyle:
-                                          //                 const TextStyle(
-                                          //                     color: Colors.white,
-                                          //                     fontSize: 16.0,
-                                          //                     letterSpacing: 1.0),
-                                          //             backgroundColor:
-                                          //                 Colors.blue[800],
-                                          //             scrollable: true,
-                                          //             alignment:
-                                          //                 Alignment.topCenter,
-                                          //             shape:
-                                          //                 RoundedRectangleBorder(
-                                          //                     borderRadius:
-                                          //                         BorderRadius
-                                          //                             .circular(
-                                          //                                 16.0)),
-                                          //           );
-                                          //         });
-                                          //   }
+                                            // loadingWidget.showLoadingWidget(context);
+                                            try {
+                                              await authentication
+                                                  .signinwithMobileNo(
+                                                  mobileNo.text.trim(),
+                                                  firstName.text.trim(),
+                                                  lastName.text.trim(),
+                                                  emailAddress.text.trim(),
+                                                  context);
+                                            }
+                                            on FirebaseAuthException catch(e){
+                                              setState((){
+                                                errorMessage = e.message!;
+                                                customDialog.showCustomErrorDialog(
+                                                    context, errorMessage);
+                                              });
+                                            }
+                                            print('sign up succesful');
+                                            if (authentication.completed) {
+                                              Navigator.pop(context);
+                                            }
+                                          } else {
+                                            Navigator.pop(context);
+                                            setState(() {
+                                              errorMessage =
+                                                  authentication.errorMessage;
+                                            });
+                                            // customSnackBar.showErrorSnackBar(context, errorMessage);
+                                            customDialog.showCustomErrorDialog(
+                                                context, errorMessage);
+
+                                          }
                                         }
                                       },
                                       child: Text('Sign up',
@@ -569,7 +504,7 @@ class _SignupState extends State<Signup> {
                               style: textTheme.hyperlinkDark,
                               recognizer: TapGestureRecognizer()
                                 ..onTap = () {
-                                 customDialog.showCustomTandCDialog(context);
+                                  customDialog.showCustomTandCDialog(context);
                                 }),
                           TextSpan(text: 'and ', style: textTheme.textDark),
                           TextSpan(
@@ -577,7 +512,8 @@ class _SignupState extends State<Signup> {
                               style: textTheme.hyperlinkDark,
                               recognizer: TapGestureRecognizer()
                                 ..onTap = () {
-                                  customDialog.showCustomPrivacyUseDialog(context);
+                                  customDialog
+                                      .showCustomPrivacyUseDialog(context);
                                 })
                         ]),
                       ),
