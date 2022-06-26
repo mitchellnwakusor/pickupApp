@@ -49,7 +49,7 @@ class _LandingScreenState extends State<LandingScreen> {
                   decoration: BoxDecoration(
                     // color: Colors.red,
                     image: DecorationImage(
-                        image: const AssetImage('assets/images/home_banner.png'),
+                        image: const AssetImage('lib/assets/images/home_banner.png'),
                         opacity: 0.8,
                         fit: BoxFit.values[5]),
                   ),
